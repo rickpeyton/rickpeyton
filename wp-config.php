@@ -20,16 +20,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wordpress');
+define('DB_NAME', getenv('WORDPRESS_DB_NAME'));
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', getenv('WORDPRESS_DB_USER'));
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password');
+define('DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD'));
 
 /** MySQL hostname */
-define('DB_HOST', 'host.docker.internal:3306');
+define('DB_HOST', getenv('WORDPRESS_DB_HOST'));
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -46,14 +46,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '8f17abd5cdd353f9d9e6be3fad011527ed26ea02');
-define('SECURE_AUTH_KEY',  'ec483b5b09823f666475de019b2fe31e7597e060');
-define('LOGGED_IN_KEY',    '93a8b98138e1be14ddc0ca4a8bae97676535a3ef');
-define('NONCE_KEY',        'e9ce6118d5e163c854c6b2e046ae5185ffe59d76');
-define('AUTH_SALT',        '67e8bc04fe60ff2d81b49ecb33d1972591a936bf');
-define('SECURE_AUTH_SALT', '89147a12f229184a7d0e103f2b8d8d9762131bb3');
-define('LOGGED_IN_SALT',   '489566014f123bcd336fcd38fe27fa7f22b4c01c');
-define('NONCE_SALT',       '3487fa7f88b8f49987c9337c41ddeafc547557ac');
+define('AUTH_KEY',         getenv('WORDPRESS_AUTH_KEY'));
+define('SECURE_AUTH_KEY',  getenv('WORDPRESS_SECURE_AUTH_KEY'));
+define('LOGGED_IN_KEY',    getenv('WORDPRESS_LOGGED_IN_KEY'));
+define('NONCE_KEY',        getenv('WORDPRESS_NONCE_KEY'));
+define('AUTH_SALT',        getenv('WORDPRESS_AUTH_SALT'));
+define('SECURE_AUTH_SALT', getenv('WORDPRESS_SECURE_AUTH_SALT'));
+define('LOGGED_IN_SALT',   getenv('WORDPRESS_LOGGED_IN_SALT'));
+define('NONCE_SALT',       getenv('WORDPRESS_NONCE_SALT'));
 
 /**#@-*/
 
