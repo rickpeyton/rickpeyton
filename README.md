@@ -21,6 +21,8 @@ Staging
 Set the following variables in `.env.dev`
 
 ```.env
+PORT=80
+
 WORDPRESS_DB_HOST=host.docker.internal:3306
 WORDPRESS_DB_USER=root
 WORDPRESS_DB_PASSWORD=password
@@ -36,3 +38,13 @@ WORDPRESS_SECURE_AUTH_SALT=89147a12f229184a7d0e103f2b8d8d9762131bb3
 WORDPRESS_LOGGED_IN_SALT=489566014f123bcd336fcd38fe27fa7f22b4c01c
 WORDPRESS_NONCE_SALT=3487fa7f88b8f49987c9337c41ddeafc547557ac
 ```
+
+# Notes
+
+Resolve the following Heroku error [Github Issue](https://github.com/docker-library/wordpress/issues/293)
+
+`apache2: Configuration error: More than one MPM loaded.`
+
+with
+
+`heroku labs:enable --app=YOUR-APP runtime-new-layer-extract`
