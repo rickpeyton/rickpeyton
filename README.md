@@ -12,6 +12,10 @@ docker build -t rickpeyton .
 docker run --rm -it --env-file .env.dev -p 8080:80 -v $(pwd):/var/www/html rickpeyton
 ```
 
+Staging
+
+`docker run --rm -it --env-file .env.staging -p 8080:80 -v $(pwd):/var/www/html rickpeyton`
+
 ## Environment variables
 
 Set the following variables in `.env.dev`
