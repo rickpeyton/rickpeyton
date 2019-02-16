@@ -55,6 +55,14 @@ define('SECURE_AUTH_SALT', getenv('WORDPRESS_SECURE_AUTH_SALT'));
 define('LOGGED_IN_SALT',   getenv('WORDPRESS_LOGGED_IN_SALT'));
 define('NONCE_SALT',       getenv('WORDPRESS_NONCE_SALT'));
 
+
+/* Offload Media Plugin */
+define( 'AS3CF_SETTINGS', serialize( array(
+	'provider' => 'aws',
+	'access-key-id' => getenv('AS3CF_ACCESS_KEY_ID'),
+	'secret-access-key' => getenv('AS3CF_SECRET_ACCESS_KEY'),
+) ) );
+
 /**#@-*/
 
 /**

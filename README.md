@@ -37,6 +37,9 @@ WORDPRESS_AUTH_SALT=67e8bc04fe60ff2d81b49ecb33d1972591a936bf
 WORDPRESS_SECURE_AUTH_SALT=89147a12f229184a7d0e103f2b8d8d9762131bb3
 WORDPRESS_LOGGED_IN_SALT=489566014f123bcd336fcd38fe27fa7f22b4c01c
 WORDPRESS_NONCE_SALT=3487fa7f88b8f49987c9337c41ddeafc547557ac
+
+AS3CF_ACCESS_KEY_ID=
+AS3CF_SECRET_ACCESS_KEY=
 ```
 
 # Notes
@@ -48,3 +51,11 @@ Resolve the following Heroku error [Github Issue](https://github.com/docker-libr
 with
 
 `heroku labs:enable --app=YOUR-APP runtime-new-layer-extract`
+
+Performing database backups and dumps
+
+Backup
+`mysqldump -hhost.docker.internal -ppassword wordpress > dump.sql`
+
+Import
+`mysql -hHOST -pPASSWORD -uUSER --database=DATABASE < dump.sql`
