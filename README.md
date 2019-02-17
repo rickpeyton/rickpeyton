@@ -54,8 +54,31 @@ with
 
 Performing database backups and dumps
 
+Jump into an appropriate container
+`docker run --rm -it mysql:5.5 bash`
+
 Backup
-`mysqldump -hhost.docker.internal -ppassword wordpress > dump.sql`
+`mysqldump -hHOST -uUSER -pPASSWORD DATABASE > dump.sql`
 
 Import
-`mysql -hHOST -pPASSWORD -uUSER --database=DATABASE < dump.sql`
+`mysql -hHOST -uUSER -pPASSWORD --database=DATABASE < dump.sql`
+
+Helpful SQL
+
+```sql
+UPDATE wp_options
+SET option_value = REPLACE(option_value, 'http://localhost:8080', 'https://rickpeyton-staging.herokuapp.com')
+WHERE INSTR(option_value, 'http://localhost:8080') > 0;
+```
+
+```sql
+UPDATE wp_postmeta
+SET meta_value = REPLACE(meta_value, '//localhost:8080', '//rickpeyton-staging.herokuapp.com')
+WHERE INSTR(meta_value, '//localhost:8080') > 0;
+```
+
+```sql
+UPDATE wp_posts
+SET post_content = REPLACE(post_content, 'http://localhost:8080', 'https://rickpeyton-staging.herokuapp.com')
+WHERE INSTR(post_content, 'http://localhost:8080') > 0;
+```
