@@ -21,6 +21,10 @@
 		<?php endif; ?>
 	<?php endif; ?>
 
+	<p class="site-description">
+		<a href="/about/" rel="about">About</a>
+	</p>
+
 	<?php
 	$description = get_bloginfo( 'description', 'display' );
 	if ( $description || is_customize_preview() ) :

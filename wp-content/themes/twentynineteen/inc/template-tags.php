@@ -27,7 +27,7 @@ if ( ! function_exists( 'twentynineteen_posted_on' ) ) :
 
 		printf(
 			'<span class="posted-on">%1$s<a href="%2$s" rel="bookmark">%3$s</a></span>',
-			twentynineteen_get_icon_svg( 'watch', 16 ),
+			'',
 			esc_url( get_permalink() ),
 			$time_string
 		);
@@ -77,10 +77,10 @@ if ( ! function_exists( 'twentynineteen_entry_footer' ) ) :
 		if ( 'post' === get_post_type() ) {
 
 			// Posted by
-			twentynineteen_posted_by();
+			// twentynineteen_posted_by();
 
 			// Posted on
-			twentynineteen_posted_on();
+			// twentynineteen_posted_on();
 
 			/* translators: used between list items, there is a space after the comma. */
 			$categories_list = get_the_category_list( __( ', ', 'twentynineteen' ) );
