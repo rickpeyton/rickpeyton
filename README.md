@@ -6,10 +6,14 @@ My personal website. Primarily for archiving recipes and interesting programming
 
 Development
 
+In addition to the steps below you will need to:
+* Run an nginx reverse proxy in front of the server https://github.com/rickpeyton/localhost_nginx_ssl
+* Do a production database dump and import into the local database
+
 ```
 docker run --rm -it --name mysql57 -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql:5.7
 docker build -t rickpeyton .
-docker run --rm -it --env-file .env.dev -p 8080:80 -v $(pwd):/var/www/html rickpeyton
+docker run --rm -it --env-file .env.dev -p 3000:80 -v $(pwd):/var/www/html rickpeyton
 ```
 
 Staging
@@ -55,12 +59,13 @@ with
 Performing database backups and dumps
 
 Jump into an appropriate container
-`docker run --rm -it mysql:5.5 bash`
+`docker run --rm -it -v $(pwd):/tmp mysql:5.7 bash`
 
 Backup
-`mysqldump -hHOST -uUSER -pPASSWORD DATABASE > dump.sql`
+`mysqldump -hHOST -uUSER -pPASSWORD DATABASE > /tmp/dump.sql`
 
 Import
+`mysqladmin -hHOST -uUSER -pPASSWORD create wordpress`
 `mysql -hHOST -uUSER -pPASSWORD --database=DATABASE < dump.sql`
 
 Helpful SQL
