@@ -1,6 +1,0 @@
-.env*
-.dockerignore
-
-README.md
-
-wp-content/uploads/*
